@@ -129,7 +129,7 @@ const experiences = [
 
 const projects = [
   {
-    title: 'Sales Performance Dashboard',
+    title: 'Profit Performance Dashboard',
     tag: 'Tableau',
     desc: 'Dashboard interaktif untuk memantau performa penjualan bulanan, regional, dan per-kategori produk.',
     tech: ['Tableau', 'SQL', 'Excel'],
