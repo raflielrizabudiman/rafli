@@ -6,6 +6,10 @@ import pythonLogo from '../assets/Python.png'
 import tableauLogo from '../assets/Tableau-Logo.png'
 import powerBILogo from '../assets/Power-BI-Logo-2013.png'
 import profileImg from '../assets/profile.jpeg'
+import itkLogo from '../assets/itk-logo.png'
+import revouLogo from '../assets/RevoU_Logo.png'
+import featured1 from '../assets/featured1.jpg'
+import featured2 from '../assets/featured2.jpg'
 
 /* ═══════════════════════════════════════════════
    Dark Mode
@@ -89,11 +93,13 @@ onBeforeUnmount(() => {
    Static Data
    ═══════════════════════════════════════════════ */
 const navLinks = [
-  { label: 'About', href: '#about' },
-  { label: 'Experience', href: '#experience' },
-  { label: 'Projects', href: '#projects' },
-  { label: 'Skills', href: '#skills' },
-  { label: 'Contact', href: '#contact' },
+ { label: 'Home', href: '#home' },
+ { label: 'About', href: '#about' },
+ { label: 'Education', href: '#education' },
+ { label: 'Experience', href: '#experience' },
+ { label: 'Projects', href: '#projects' },
+ { label: 'Skills', href: '#skills' },
+ { label: 'Contact', href: '#contact' },
 ]
 
 const skills = [
@@ -127,37 +133,93 @@ const experiences = [
   },
 ]
 
-const projects = [
+const educations = [
   {
-    title: 'Profit Performance Dashboard',
-    tag: 'Tableau',
-    desc: 'Dashboard interaktif untuk memantau performa penjualan bulanan, regional, dan per-kategori produk.',
-    tech: ['Tableau', 'SQL', 'Excel'],
+    logo: itkLogo,
+    school: 'Institut Teknologi Kalimantan',
+    period: 'Jul 2021 - Apr 2025',
+    degree: 'Bachelor, Mathematics',
+    gpa: 'GPA: 3.60 / 4.00',
+    description:
+      'Specialized in Statistics and Applied Mathematics. Completed a thesis in Graph Theory and Max-Plus Algebra focusing on optimizing traffic light timing to reduce street congestion.',
   },
+
   {
-    title: 'Customer Churn Analysis',
-    tag: 'Python',
-    desc: 'Analisis prediktif untuk mengidentifikasi pelanggan berpotensi churn menggunakan machine learning.',
-    tech: ['Python', 'Pandas', 'Scikit-learn'],
+    logo: revouLogo,
+    school: 'RevoU',
+    period: 'Feb 2026 - Present',
+    degree: 'Full Stack Data Analysis Course',
+    gpa: '',
+    description:
+      'Covered the complete data analytics lifecycle, from defining business problems and hypotheses to data collection, cleaning, analysis, visualization, and presenting actionable insights using SQL, Python, Tableau, and Power BI.',
   },
+]
+
+const featuredProjects = [
   {
-    title: 'E-Commerce Data Pipeline',
-    tag: 'BigQuery',
-    desc: 'Pipeline ETL otomatis yang memproses data transaksi harian dari e-commerce ke data warehouse.',
-    tech: ['BigQuery', 'SQL', 'Python'],
+    title: 'Enhancing Credit Card Profitability Through Risk and Behavioral Segmentation',
+    image: featured1,
+    tech: ['Python', 'K-Means', 'EDA'],
+
+    background:
+      'RevoBank aimed to increase credit card profitability by encouraging greater credit card usage among existing customers. Rising fraud losses threatened revenue, requiring a data-driven approach to balance business growth with risk management.',
+
+    methods: [
+      'Data cleaning and preprocessing using Python',
+      'Feature engineering for customer risk metrics',
+      'Customer segmentation using K-Means clustering',
+      'Exploratory Data Analysis (EDA)',
+    ],
+
+    findings:
+      'Fraud accounted for 14.8% of gross revenue (IDR 1.01B), while non-retired customers exhibited the highest fraud risk and transaction volatility.',
+
+    actions:
+      'Increase credit limits for low-risk mid-career customers and introduce lifestyle reward programs for the Stable Silver Giants customer segment.',
+
+    slides:
+      'https://drive.google.com/file/d/1Q-d3Jci1eCg1TQn0Usxo7FbUoWTPu6Zt/view?usp=sharing',
+
+    code:
+      'https://colab.research.google.com/drive/17D6kwVJDcd5rVtSJ76BI0LviOinYjyCM?usp=sharing',
   },
+
   {
-    title: 'Financial Report Automation',
-    tag: 'Power BI',
-    desc: 'Otomasi laporan keuangan bulanan dengan visualisasi real-time dan notifikasi anomali.',
-    tech: ['Power BI', 'DAX', 'Excel'],
+    title: 'Brazil Good Deals Market (BGDMart) Regional Revenue & Logistics Optimization',
+    image: featured2,
+    tech: ['SQL', 'Python', 'Tableau'],
+
+    background:
+      'BGDMart experienced growing regional demand across Brazil. Improving logistics efficiency and delivery performance became essential to sustain customer satisfaction and revenue growth.',
+
+    methods: [
+      'SQL for data cleaning and joins',
+      'Python for Exploratory Data Analysis',
+      'Customer clustering',
+      'Tableau dashboard development',
+    ],
+
+    findings:
+      'The top five Brazilian states generated 88% of total revenue, while Rio de Janeiro and Bahia recorded late delivery rates above 11%.',
+
+    actions:
+      'Establish regional fulfillment hubs in high-value states while prioritizing marketing investment toward regions with strong logistics performance.',
+
+    slides:
+      'https://drive.google.com/file/d/1xJgOhblrs2XTjaaPaPwF1HO77q8AtXCz/view?usp=drive_link',
+
+    dashboard:
+      'https://public.tableau.com/views/DATVIZDeepp/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link',
+
+    code:
+      'https://colab.research.google.com/drive/1Td_oA1G5W2bzYuimpSeKn9DpA-JUW-la?usp=sharing',
   },
 ]
 
 const contactForm = ref({ name: '', email: '', message: '' })
 
 function handleSubmit() {
-  alert(`Terima kasih, ${contactForm.value.name}! Pesan Anda telah dikirim.`)
+  alert(`Thank you, ${contactForm.value.name}! Your message has been sent.`)
   contactForm.value = { name: '', email: '', message: '' }
 }
 </script>
@@ -272,9 +334,9 @@ function handleSubmit() {
     </nav>
 
     <!-- ════════════════════════════════════════════
-         HERO / ABOUT ME — photo left, text right
+         HERO — photo left, text right
          ════════════════════════════════════════════ -->
-    <section id="about" class="pt-28 sm:pt-36 pb-20 px-6">
+    <section id="home" class="pt-28 sm:pt-36 pb-20 px-6">
       <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12 md:gap-16">
 
         <!-- Left: Photo / Avatar -->
@@ -314,15 +376,17 @@ function handleSubmit() {
           </div>
 
           <h1
-            class="reveal opacity-0 translate-y-8 transition-all duration-700 delay-150 text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight text-stone-900 dark:text-white"
+            class="reveal opacity-0 translate-y-8 transition-all duration-700 delay-150 text-4xl sm:text-5xl font-extrabold tracking-tight leading-tight text-stone-900 dark:text-white"
           >
-            Halo, saya
-            <span class="bg-gradient-to-r from-rose-500 to-rose-600 bg-clip-text text-transparent">Rafli</span>
+            Hi! I'm
+            <span class="text-3xl sm:text-4xl lg:text-5xl bg-gradient-to-r from-rose-500 to-rose-600 bg-clip-text text-transparent">
+              Rafli El'riza Budiman
+            </span>
           </h1>
 
           <p
             class="reveal opacity-0 translate-y-8 transition-all duration-700 delay-200 mt-5 text-lg sm:text-xl leading-relaxed max-w-xl text-stone-500 dark:text-stone-400"
-          >I am an aspiring Data Analyst with a strong mathematics background and a passion for turning data into actionable insights. Skilled in SQL, Python, Excel, Tableau, and Power BI, I enjoy solving problems, uncovering patterns, and supporting data-driven decision-making.
+          >A passionate Data Analyst who loves transforming complex data into clear, actionable insights to drive informed decisions.
           </p>
 
           <!-- CTA -->
@@ -331,7 +395,7 @@ function handleSubmit() {
               href="#projects"
               class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-rose-500 to-rose-600 hover:from-rose-600 hover:to-rose-700 text-white font-semibold text-sm shadow-lg shadow-rose-500/25 hover:shadow-xl hover:shadow-rose-500/35 transition-all duration-300 hover:-translate-y-0.5"
             >
-              Lihat Project
+              View Projects
               <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
             </a>
             <a
@@ -340,12 +404,152 @@ function handleSubmit() {
               :class="isDark
                 ? 'border-stone-700 text-stone-300 hover:border-rose-500 hover:text-rose-400'
                 : 'border-stone-300 text-stone-700 hover:border-rose-400 hover:text-rose-600'"
-            >Hubungi Saya</a>
+            >Contact Me</a>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- ════════════════════════════════════════════
+         ABOUT ME
+         ════════════════════════════════════════════ -->
+    <section id="about" class="py-20 px-6 transition-colors duration-300" :class="isDark ? 'bg-[#13151d]' : 'bg-white/60'">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center reveal opacity-0 translate-y-8 transition-all duration-700">
+          <span
+            class="inline-block px-3 py-1 rounded-full text-xs font-semibold tracking-wide uppercase mb-4"
+            :class="isDark ? 'bg-rose-950/40 text-rose-400' : 'bg-rose-100 text-rose-600'"
+          >Introduction</span>
+          <h2 class="text-3xl sm:text-4xl font-bold" :class="isDark ? 'text-white' : 'text-stone-900'">About Me</h2>
+        </div>
+        
+        <div class="mt-10 reveal opacity-0 translate-y-8 transition-all duration-700 text-base sm:text-lg leading-relaxed text-justify" :class="isDark ? 'text-stone-400' : 'text-stone-600'">
+          <p class="mb-4">
+            I am an aspiring Data Analyst with a strong mathematics background and an interest in using data to support decision-making. Through my experience as a Archivist and analytics projects, I have used SQL, Python, Microsoft Excel, Tableau, and Power BI to analyze data, build dashboards, and present findings. I organized and cataloged more than 2,000 archives and developed an Excel dashboard that reduced administrative process time by 40%.
+          </p>
+          <p>
+            These experiences strengthened my Statistical Skills, EDA, and Business Intelligence while improving communication, teamwork, leadership, adaptability, and problem-solving skills also working with diverse stakeholders. I am eager to apply my analytical skills to solve business problems and continue growing as a Data Analyst.
+          </p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════
+     EDUCATION
+    ════════════════════════════════════════════ -->
+    <section
+      id="education"
+      class="py-20 px-6 transition-colors duration-300"
+      :class="isDark ? 'bg-[#13151d]' : 'bg-white/60'"
+    >
+      <div class="max-w-6xl mx-auto">
+
+        <!-- Heading -->
+        <div class="text-center reveal opacity-0 translate-y-8 transition-all duration-700">
+          <span
+            class="inline-block px-3 py-1 rounded-full text-xs font-semibold tracking-wide uppercase mb-4"
+            :class="isDark
+              ? 'bg-rose-950/40 text-rose-400'
+              : 'bg-rose-100 text-rose-600'"
+          >
+            Education
+          </span>
+
+          <h2
+            class="text-3xl sm:text-4xl font-bold"
+            :class="isDark ? 'text-white' : 'text-stone-900'"
+          >
+            Education
+          </h2>
+
+          <p
+            class="mt-3"
+            :class="isDark ? 'text-stone-400' : 'text-stone-500'"
+          >
+            Academic background and certifications.
+          </p>
+        </div>
+
+        <!-- Cards -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-14">
+
+          <div
+            v-for="(edu,i) in educations"
+            :key="edu.school"
+            class="reveal opacity-0 translate-y-8 transition-all duration-700 rounded-3xl border p-8 shadow-lg hover:-translate-y-1 hover:shadow-2xl"
+            :style="{ transitionDelay: `${(i+1)*150}ms` }"
+            :class="isDark
+              ? 'bg-[#181a24] border-stone-800 hover:border-rose-700'
+              : 'bg-white border-stone-200 hover:border-rose-300'"
+          >
+
+            <!-- Logo -->
+            <div class="flex justify-center">
+              <div class="w-24 h-24 rounded-full bg-white shadow-lg flex items-center justify-center">
+                <img
+                  :src="edu.logo"
+                  :alt="edu.school"
+                  class="w-16 h-16 object-contain"
+                >
+              </div>
+            </div>
+
+            <!-- School -->
+            <div class="text-center mt-6">
+
+              <h3
+                class="text-2xl font-bold"
+                :class="isDark ? 'text-white' : 'text-stone-900'"
+              >
+                {{ edu.school }}
+              </h3>
+
+              <span
+                class="inline-block mt-3 px-4 py-1 rounded-full text-xs font-semibold"
+                :class="isDark
+                  ? 'bg-rose-900/30 text-rose-300'
+                  : 'bg-rose-100 text-rose-600'"
+              >
+                {{ edu.period }}
+              </span>
+
+            </div>
+
+            <!-- Degree -->
+            <div class="mt-7 text-center">
+
+              <h4
+                class="text-lg font-bold"
+                :class="isDark ? 'text-rose-300' : 'text-rose-600'"
+              >
+                {{ edu.degree }}
+              </h4>
+
+              <p
+                v-if="edu.gpa"
+                class="mt-2 text-sm font-semibold"
+                :class="isDark ? 'text-stone-300' : 'text-stone-600'"
+              >
+                {{ edu.gpa }}
+              </p>
+
+            </div>
+
+            <!-- Description -->
+            <p
+              class="mt-6 text-sm leading-7 text-center"
+              :class="isDark ? 'text-stone-400' : 'text-stone-600'"
+            >
+              {{ edu.description }}
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
 
     <!-- ════════════════════════════════════════════
          EXPERIENCE
@@ -356,8 +560,8 @@ function handleSubmit() {
           <span
             class="inline-block px-3 py-1 rounded-full text-xs font-semibold tracking-wide uppercase mb-4"
             :class="isDark ? 'bg-rose-950/40 text-rose-400' : 'bg-rose-100 text-rose-600'"
-          >Pengalaman</span>
-          <h2 class="text-3xl sm:text-4xl font-bold" :class="isDark ? 'text-white' : 'text-stone-900'">Riwayat Karier</h2>
+          >Experience</span>
+          <h2 class="text-3xl sm:text-4xl font-bold" :class="isDark ? 'text-white' : 'text-stone-900'">Career History</h2>
         </div>
 
         <!-- Timeline -->
@@ -404,56 +608,161 @@ function handleSubmit() {
       class="py-20 px-6 transition-colors duration-300"
       :class="isDark ? 'bg-[#13151d]' : 'bg-white/60'"
     >
-      <div class="max-w-5xl mx-auto">
+      <div class="max-w-7xl mx-auto">
+
+        <!-- Heading -->
         <div class="text-center reveal opacity-0 translate-y-8 transition-all duration-700">
           <span
             class="inline-block px-3 py-1 rounded-full text-xs font-semibold tracking-wide uppercase mb-4"
             :class="isDark ? 'bg-rose-950/40 text-rose-400' : 'bg-rose-100 text-rose-600'"
-          >Portofolio</span>
-          <h2 class="text-3xl sm:text-4xl font-bold" :class="isDark ? 'text-white' : 'text-stone-900'">Featured Projects</h2>
-          <p class="mt-3" :class="isDark ? 'text-stone-400' : 'text-stone-500'">Beberapa project pilihan yang pernah saya kerjakan</p>
+          >
+            Portfolio
+          </span>
+
+          <h2
+            class="text-3xl sm:text-4xl font-bold"
+            :class="isDark ? 'text-white' : 'text-stone-900'"
+          >
+            Featured Projects
+          </h2>
+
+          <p
+            class="mt-3"
+            :class="isDark ? 'text-stone-400' : 'text-stone-500'"
+          >
+            My most advanced analytics projects.
+          </p>
         </div>
 
-        <div class="mt-14 grid sm:grid-cols-2 gap-6">
-          <div
-            v-for="(project, i) in projects"
-            :key="project.title"
-            class="reveal opacity-0 translate-y-8 transition-all duration-700 group relative rounded-2xl p-6 sm:p-7 border shadow-sm hover:shadow-xl hover:-translate-y-1 overflow-hidden bg-white border-stone-200/80 hover:border-rose-300 dark:bg-[#181a24] dark:border-stone-800/80 dark:hover:border-rose-700/50"
-            :style="{ transitionDelay: `${(i + 1) * 100}ms` }"
-          >
-            <!-- Decorative blob -->
-            <div class="absolute -top-12 -right-12 w-32 h-32 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-500"
-              :class="isDark
-                ? 'bg-gradient-to-br from-rose-700/15 to-rose-900/10'
-                : 'bg-gradient-to-br from-rose-200/40 to-rose-400/20'"
-            ></div>
+        <!-- Featured -->
+        <div class="grid lg:grid-cols-2 gap-8 mt-14">
 
-            <div class="relative">
-              <span
-                class="inline-block px-2.5 py-1 rounded-md text-[11px] font-bold tracking-wider uppercase"
-                :class="isDark ? 'bg-rose-950/50 text-rose-400' : 'bg-rose-100 text-rose-600'"
-              >{{ project.tag }}</span>
+          <div
+            v-for="(project, i) in featuredProjects"
+            :key="project.title"
+            class="reveal opacity-0 translate-y-8 transition-all duration-700 rounded-3xl overflow-hidden border shadow-lg"
+            :style="{ transitionDelay: `${(i+1)*150}ms` }"
+            :class="isDark
+              ? 'bg-[#181a24] border-stone-800 hover:border-rose-700'
+              : 'bg-white border-stone-200 hover:border-rose-300'"
+          >
+
+            <!-- Image -->
+            <img
+              :src="project.image"
+              :alt="project.title"
+              class="w-full h-60 object-cover object-top"
+            >
+
+            <div class="p-7">
 
               <h3
-                class="mt-4 text-lg font-bold transition-colors"
-                :class="isDark
-                  ? 'text-white group-hover:text-rose-400'
-                  : 'text-stone-900 group-hover:text-rose-600'"
-              >{{ project.title }}</h3>
+                class="text-xl font-bold"
+                :class="isDark ? 'text-white' : 'text-stone-900'"
+              >
+                {{ project.title }}
+              </h3>
 
-              <p class="mt-2 text-sm leading-relaxed" :class="isDark ? 'text-stone-400' : 'text-stone-500'">{{ project.desc }}</p>
-
-              <div class="mt-5 flex flex-wrap gap-2">
+              <!-- Tech -->
+              <div class="flex flex-wrap gap-2 mt-4 mb-6">
                 <span
-                  v-for="t in project.tech"
-                  :key="t"
-                  class="px-2.5 py-1 rounded-lg text-[11px] font-semibold"
-                  :class="isDark ? 'bg-stone-800 text-stone-400' : 'bg-stone-100 text-stone-600'"
-                >{{ t }}</span>
+                  v-for="tool in project.tech"
+                  :key="tool"
+                  class="px-3 py-1 rounded-full text-xs font-semibold"
+                  :class="isDark
+                    ? 'bg-rose-900/30 text-rose-300'
+                    : 'bg-rose-100 text-rose-600'"
+                >
+                  {{ tool }}
+                </span>
               </div>
+
+              <div class="space-y-5 text-sm">
+
+                <div>
+                  <h4 class="font-bold mb-1">Background</h4>
+                  <p>{{ project.background }}</p>
+                </div>
+
+                <div>
+                  <h4 class="font-bold mb-1">Methods</h4>
+
+                  <ul class="list-disc ml-5 space-y-1">
+                    <li
+                      v-for="method in project.methods"
+                      :key="method"
+                    >
+                      {{ method }}
+                    </li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 class="font-bold mb-1">Key Findings</h4>
+                  <p>{{ project.findings }}</p>
+                </div>
+
+                <div>
+                  <h4 class="font-bold mb-1">Business Actions</h4>
+                  <p>{{ project.actions }}</p>
+                </div>
+
+              </div>
+
+              <!-- Buttons -->
+              <div class="grid grid-cols-2 gap-3 mt-8">
+
+                <a
+                  :href="project.slides"
+                  target="_blank"
+                  class="text-center py-3 rounded-xl bg-rose-500 text-white font-semibold hover:bg-rose-600 transition"
+                >
+                  Open Slides
+                </a>
+
+                <a
+                  :href="project.code"
+                  target="_blank"
+                  class="text-center py-3 rounded-xl border font-semibold transition"
+                  :class="isDark
+                    ? 'border-stone-700 hover:bg-stone-800'
+                    : 'border-stone-300 hover:bg-stone-100'"
+                >
+                  Open Code
+                </a>
+
+                <a
+                  v-if="project.dashboard"
+                  :href="project.dashboard"
+                  target="_blank"
+                  class="col-span-2 text-center py-3 rounded-xl border font-semibold transition"
+                  :class="isDark
+                    ? 'border-stone-700 hover:bg-stone-800'
+                    : 'border-stone-300 hover:bg-stone-100'"
+                >
+                  Open Dashboard
+                </a>
+
+              </div>
+
             </div>
+
           </div>
+
         </div>
+
+        <!-- Intermediate -->
+        <div class="mt-24 text-center">
+          <h2 class="text-3xl font-bold">Intermediate Projects</h2>
+          <p class="mt-3 text-stone-500">Coming Soon</p>
+        </div>
+
+        <!-- Foundational -->
+        <div class="mt-16 text-center">
+          <h2 class="text-3xl font-bold">Foundational Projects</h2>
+          <p class="mt-3 text-stone-500">Coming Soon</p>
+        </div>
+
       </div>
     </section>
 
@@ -463,16 +772,15 @@ function handleSubmit() {
     <section
       id="skills"
       class="py-20 px-6 transition-colors duration-300"
-      :class="isDark ? 'bg-[#13151d]' : 'bg-white/60'"
     >
       <div class="max-w-4xl mx-auto text-center">
         <div class="reveal opacity-0 translate-y-8 transition-all duration-700">
           <span
             class="inline-block px-3 py-1 rounded-full text-xs font-semibold tracking-wide uppercase mb-4"
             :class="isDark ? 'bg-rose-950/40 text-rose-400' : 'bg-rose-100 text-rose-600'"
-          >Keahlian</span>
+          >Skills</span>
           <h2 class="text-3xl sm:text-4xl font-bold" :class="isDark ? 'text-white' : 'text-stone-900'">Tech Stack</h2>
-          <p class="mt-3" :class="isDark ? 'text-stone-400' : 'text-stone-500'">Tools dan teknologi yang saya kuasai</p>
+          <p class="mt-3" :class="isDark ? 'text-stone-400' : 'text-stone-500'">Tools and technologies I am proficient in</p>
         </div>
 
         <div class="mt-14 flex flex-wrap justify-center gap-8 sm:gap-12">
@@ -494,7 +802,7 @@ function handleSubmit() {
         <!-- Soft Skills -->
         <div class="mt-20 reveal opacity-0 translate-y-8 transition-all duration-700">
           <h2 class="text-2xl sm:text-3xl font-bold" :class="isDark ? 'text-white' : 'text-stone-900'">Soft Skills</h2>
-          <p class="mt-3" :class="isDark ? 'text-stone-400' : 'text-stone-500'">Keterampilan interpersonal yang saya miliki</p>
+          <p class="mt-3" :class="isDark ? 'text-stone-400' : 'text-stone-500'">My interpersonal skills</p>
         </div>
 
         <div class="mt-10 flex flex-wrap justify-center gap-3 sm:gap-4">
@@ -514,24 +822,24 @@ function handleSubmit() {
     <!-- ════════════════════════════════════════════
          CONTACT
          ════════════════════════════════════════════ -->
-    <section id="contact" class="py-20 px-6">
+    <section id="contact" class="py-20 px-6 transition-colors duration-300" :class="isDark ? 'bg-[#13151d]' : 'bg-white/60'">
       <div class="max-w-2xl mx-auto">
         <div class="text-center reveal opacity-0 translate-y-8 transition-all duration-700">
           <span
             class="inline-block px-3 py-1 rounded-full text-xs font-semibold tracking-wide uppercase mb-4"
             :class="isDark ? 'bg-rose-950/40 text-rose-400' : 'bg-rose-100 text-rose-600'"
-          >Kontak</span>
-          <h2 class="text-3xl sm:text-4xl font-bold" :class="isDark ? 'text-white' : 'text-stone-900'">Mari Terhubung</h2>
-          <p class="mt-3" :class="isDark ? 'text-stone-400' : 'text-stone-500'">Punya pertanyaan atau ingin berkolaborasi? Hubungi saya!</p>
+          >Contact</span>
+          <h2 class="text-3xl sm:text-4xl font-bold" :class="isDark ? 'text-white' : 'text-stone-900'">Let's Connect</h2>
+          <p class="mt-3" :class="isDark ? 'text-stone-400' : 'text-stone-500'">Have a question or want to collaborate? Feel free to reach out!</p>
         </div>
 
         <!-- Social links -->
         <div class="reveal opacity-0 translate-y-8 transition-all duration-700 mt-10 flex justify-center gap-4 flex-wrap">
           <a
             v-for="social in [
-              { href: 'https://linkedin.com', label: 'LinkedIn', icon: 'linkedin' },
-              { href: 'https://github.com', label: 'GitHub', icon: 'github' },
-              { href: 'mailto:rafli@example.com', label: 'Email', icon: 'email' },
+              { href: 'https://www.linkedin.com/in/rafli-elriza-budiman', label: 'LinkedIn', icon: 'linkedin' },
+              { href: 'https://github.com/raflielrizabudiman', label: 'GitHub', icon: 'github' },
+              { href: 'mailto:raflielrizabudiman@gmail.com', label: 'Email', icon: 'email' },
             ]"
             :key="social.label"
             :href="social.href"
